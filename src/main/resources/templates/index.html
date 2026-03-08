@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Tracker</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 420px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #0f172a;
+        }
+
+        p {
+            margin: 0 0 25px 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #334155;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5f5;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            border: none;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        .example {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Crypto Tracker</h2>
+    <p>Track live cryptocurrency prices and 24-hour market changes.</p>
+
+    <form action="/track" method="post">
+        <label for="coins">Cryptocurrency Names</label>
+        <input type="text"
+               id="coins"
+               name="coins"
+               placeholder="bitcoin, ethereum"
+               required>
+
+        <button type="submit">Track Prices</button>
+    </form>
+
+    <div class="example">
+        Example: bitcoin, ethereum, solana
+    </div>
+</div>
+
+</body>
+</html>

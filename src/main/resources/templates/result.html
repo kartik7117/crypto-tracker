@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Prices</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 40px;
+        }
+
+        .header {
+            max-width: 1000px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin: 0;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .table-container {
+            max-width: 1000px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f8fafc;
+            text-align: left;
+            padding: 16px;
+            font-size: 13px;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 15px;
+            color: #0f172a;
+        }
+
+        tr:hover {
+            background: #f1f5f9;
+        }
+
+        .positive {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .negative {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Live Crypto Prices</h2>
+    <div class="subtitle">Updated market values with 24-hour change</div>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Coin</th>
+            <th>Price (USD)</th>
+            <th>24h Change (%)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="coin : ${coins}">
+            <td th:text="${coin.name}"></td>
+            <td th:text="${coin.price}"></td>
+            <td th:text="${coin.change24h}"
+                th:classappend="${coin.change24h >= 0} ? 'positive' : 'negative'">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="max-width:1000px;margin:auto;">
+    <a href="/" class="back">← Back to Tracker</a>
+</div>
+
+</body>
+</html>
